@@ -3,7 +3,7 @@ CREATE TABLE Usuario (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
-    tem_privilegios_de_admin BOOLEAN DEFAULT FALSE
+    adimin BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE Sala (

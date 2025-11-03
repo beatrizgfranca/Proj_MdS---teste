@@ -22,7 +22,7 @@ const Usuario = sequelize.define('Usuario', {
     allowNull: false,
     unique: true
   },
-  tem_privilegios_de_admin: {
+  admin: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   }
