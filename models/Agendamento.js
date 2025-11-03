@@ -1,4 +1,3 @@
-// models/Agendamento.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const Usuario = require('./Usuario');
@@ -10,12 +9,16 @@ const Agendamento = sequelize.define('Agendamento', {
     autoIncrement: true,
     primaryKey: true
   },
+  data_agendamento: {   // <-- novo campo
+    type: DataTypes.DATEONLY, // apenas a data (sem hora)
+    allowNull: false
+  },
   horario_inicio: {
-    type: DataTypes.DATE,
+    type: DataTypes.TIME, // só hora/minuto
     allowNull: false
   },
   horario_fim: {
-    type: DataTypes.DATE,
+    type: DataTypes.TIME,
     allowNull: false
   }
 }, {

@@ -25,6 +25,10 @@ const Usuario = sequelize.define('Usuario', {
   admin: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
+  },
+  qrcode: {   // <-- novo campo
+    type: DataTypes.STRING(10),
+    allowNull: true
   }
 }, {
   tableName: 'Usuario',
