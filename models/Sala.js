@@ -11,6 +11,10 @@ const Sala = sequelize.define('Sala', {
   nome: {
     type: DataTypes.STRING(100),
     allowNull: false
+  },
+  status: {
+    type: DataTypes.ENUM('livre', 'ocupado'),
+    defaultValue: 'livre'
   }
 }, {
   tableName: 'Sala',

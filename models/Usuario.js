@@ -8,6 +8,10 @@ const Usuario = sequelize.define('Usuario', {
     autoIncrement: true,
     primaryKey: true
   },
+  nome: {
+    type: DataTypes.STRING(100),
+    allowNull: false
+  },
   email: {
     type: DataTypes.STRING(100),
     allowNull: false,
@@ -26,8 +30,8 @@ const Usuario = sequelize.define('Usuario', {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },
-  qrcode: {   // <-- novo campo
-    type: DataTypes.STRING(10),
+  face_descriptor: {
+    type: DataTypes.JSON,
     allowNull: true
   }
 }, {

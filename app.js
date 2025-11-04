@@ -8,7 +8,6 @@ const sequelize = require('./config/db');
 const PORT = process.env.PORT;
 // Importando rotas
 const agendamentoRoutes = require('./routes/agendamentoRoutes');
-const microcontroladorRoutes = require('./routes/microcontroladorRoutes');
 const salaRoutes = require('./routes/salaRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
 
@@ -57,7 +56,6 @@ app.use(express.json());
 
 //rotas da api
 app.use('/api/agendamento', agendamentoRoutesRoutes);
-app.use('/api/microcontrolador', microcontroladorRoutes);
 app.use('/api/sala', salaRoutes);
 app.use('/api/usuario', usuarioRoutes);
 
