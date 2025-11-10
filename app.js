@@ -55,7 +55,7 @@ app.use(express.json());
 //rotas das paginas
 
 //rotas da api
-app.use('/api/agendamento', agendamentoRoutesRoutes);
+app.use('/api/agendamento', agendamentoRoutes);
 app.use('/api/sala', salaRoutes);
 app.use('/api/usuario', usuarioRoutes);
 

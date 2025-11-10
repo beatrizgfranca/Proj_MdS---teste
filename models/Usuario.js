@@ -29,10 +29,6 @@ const Usuario = sequelize.define('Usuario', {
   admin: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
-  },
-  face_descriptor: {
-    type: DataTypes.JSON,
-    allowNull: true
   }
 }, {
   tableName: 'Usuario',

@@ -4,8 +4,7 @@ CREATE TABLE Usuario (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
-    admin BOOLEAN DEFAULT FALSE,
-    face_descriptor JSON NOT NULL
+    admin BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE Sala (

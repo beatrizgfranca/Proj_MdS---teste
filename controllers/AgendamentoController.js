@@ -45,7 +45,7 @@ class AgendamentoController {
 
         try {
             
-            const { usuario_id } = req.params;
+            const { usuario_id } = req.body;
 
             if (!usuario_id) {
                 throw new Error('ID do usuário é obrigatório');

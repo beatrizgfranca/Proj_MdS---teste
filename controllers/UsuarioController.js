@@ -1,17 +1,4 @@
 const Usuario = require("../models/Usuario");
-const QRCode = require("qrcode");
-
-// Calcula a Distância Euclidiana entre dois vetores (descritores)
-const euclideanDistance = (desc1, desc2) => {
-  if (desc1.length !== desc2.length) {
-    throw new Error('Descritores devem ter o mesmo tamanho');
-  }
-  let sum = 0;
-  for (let i = 0; i < desc1.length; i++) {
-    sum += Math.pow(desc1[i] - desc2[i], 2);
-  }
-  return Math.sqrt(sum);
-};
 
 class UsuarioController {
 
@@ -121,55 +108,6 @@ class UsuarioController {
 
     } catch (error) {
       console.error("Erro ao registrar", error);
-      return res.status(500).json({ success: false, message: "Erro interno no servidor" });
-    }
-
-  }
-
-  static async reconhecerRosto(req, res) {
-
-    try {
-
-      const { descriptor: inputDescriptor } = req.body;
-      const DISTANCE_THRESHOLD = 0.6; // Limite de tolerância. Menor que isso é considerado a mesma pessoa.
-
-      if (!inputDescriptor) {
-        throw new Error("Descritor facial é obrigatório");
-      }
-
-      // Busca todos os usuários que têm descritor salvo
-      const usuarios = await Usuario.findAll({
-        attributes: ['id', 'nome', 'face_descriptor'],
-        where: { face_descriptor: { [Usuario.sequelize.Op.ne]: null } }
-      });
-
-      if (usuarios.length === 0) {
-        throw new Error('Nenhum rosto cadastrado no banco de dados.');
-      }
-
-      let bestMatch = { user: null, distance: Infinity };
-
-      // Compara o descritor de entrada com todos os cadastrados
-      for (const usuario of usuarios) {
-        const storedDescriptor = usuario.face_descriptor; // já vem como JSON
-        const distance = euclideanDistance(inputDescriptor, storedDescriptor);
-
-        if (distance < bestMatch.distance) {
-          bestMatch = { user: usuario, distance };
-        }
-      }
-
-      // Verifica se o melhor match está abaixo do limite de tolerância
-      if (bestMatch.distance < DISTANCE_THRESHOLD) {
-        return res.json({
-          message: `Reconhecido! Olá, ${bestMatch.user.nome}. Distância: ${bestMatch.distance.toFixed(4)}`,
-          user: bestMatch.user.nome,
-          distance: bestMatch.distance,
-        });
-
-      }
-    } catch (error) {
-      console.error("Erro ao lerbiometria", error);
       return res.status(500).json({ success: false, message: "Erro interno no servidor" });
     }
 
