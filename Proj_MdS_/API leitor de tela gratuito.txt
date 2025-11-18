@@ -1,0 +1,57 @@
+  <div class="TTSPlugin TTSPlugin-Playback-buttons-bar">
+          <span>
+            <button title="Go to beginning" aria-label="Go to beginning" data-ws-onclick="goToStart"><svg class="Top-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5V2L8 6l4 4V7c3.31 0 6 2.69 6 6 0 2.97-2.17 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93 0-4.42-3.58-8-8-8zm-6 8c0-1.65.67-3.15 1.76-4.24L6.34 7.34C4.9 8.79 4 10.79 4 13c0 4.08 3.05 7.44 7 7.93v-2.02c-2.83-.48-5-2.94-5-5.91z"></path></svg></button>
+            <button title="Jump backwards" aria-label="Jump backwards" data-ws-onclick="rewind"><svg class="Top-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"></path></svg></button>
+            <span style="display: inline-block; width: 80px;"></span>
+            <button title="Jump forward" aria-label="Jump forward" data-ws-onclick="forward"><svg class="Top-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="m4 18 8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"></path></svg></button>
+            <button title="Set narration language, voice &amp; speed" aria-label="Set narration language, voice &amp; speed" data-ws-toggle="#TTSPlugin-voicesModal"><svg class="Top-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></button>
+
+            <button class="Play-btn" data-ws-onclick="togglePlay" title="Play / Pause" aria-label="Play / Pause">
+              <span data-ws-show-if-state="isPlayingOn=true" class="hidden"><svg class="Play-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></span>
+              <span data-ws-show-if-state="isPlayingOn=false"><svg class="Play-btn-svg" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span>
+            </button>
+            <span class="TTSPlugin-link"><a style="display: inline-block;overflow: hidden;white-space: nowrap;" href="https://ttsreader.com" target="_blank"><span>Text To Speech</span>&nbsp;<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="13" height="13" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+   <path d="M12 9h.01"></path>
+   <path d="M11 12h1v4h1"></path>
+</svg></a></span>
+          </span>
+</div>
+<style>
+  .TTSPlugin-Playback-buttons-bar {
+    position: fixed;
+}
+
+.TTSPlugin-Playback-buttons-bar {
+    background-color: initial;
+    bottom: 20px;
+    font-size: large;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    z-index: 999;
+    padding: 0px;
+}
+
+.TTSPlugin, .TTSPlugin * {
+    fill: inherit;
+    box-sizing: border-box;
+}
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+folha de estilo do user agent
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
