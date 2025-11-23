@@ -76,3 +76,5 @@ class AgendamentoController {
     }
 
 }
+
+module.exports = AgendamentoController;

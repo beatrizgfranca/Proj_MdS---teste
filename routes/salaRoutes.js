@@ -6,6 +6,6 @@ const adiminMiddleware = require('../middleware/adimin')
 
 router.get('/listarSalas', SalaController.listarSalas);
 router.get('/gerarQRCodes', authMiddleware, adiminMiddleware, SalaController.gerarQRCodesPDF);
-router.post('/registrarSala', authMiddleware, adiminMiddleware, Sala.registrarSala);
+router.post('/registrarSala', authMiddleware, adiminMiddleware, SalaController.registrarSala);
 
 module.exports = router;

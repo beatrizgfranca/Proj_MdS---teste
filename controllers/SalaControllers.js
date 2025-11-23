@@ -1,7 +1,6 @@
 const Sala = require('../models/Sala');
 const Usuario = require('../models/Usuario');
 const path = require('path');
-const QRCode = require('qrcode');
 const PDFDocument = require('pdfkit');
 
 class SalaController {
@@ -85,3 +84,5 @@ class SalaController {
     }
 
 }
+
+module.exports = SalaController;

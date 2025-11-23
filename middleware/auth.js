@@ -5,7 +5,7 @@ function authMiddleware(req, res, next) {
 
   // Verifica se o header existe e começa com "Bearer"
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    throw "Token não fornecido"
+    return res.status(401).json({ message: "Token não fornecido" });
   }
 
   const token = authHeader.split(" ")[1];
@@ -19,7 +19,7 @@ function authMiddleware(req, res, next) {
 
     next(); // segue para a próxima função/rota
   } catch (err) {
-    return err;
+    return res.status(401).json({ message: "Token inválido ou expirado" });
   }
 }
 

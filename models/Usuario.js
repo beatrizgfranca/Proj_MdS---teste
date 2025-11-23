@@ -1,6 +1,6 @@
 // models/Usuario.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const { sequelize } = require('../config/db');
 
 const Usuario = sequelize.define('Usuario', {
   id: {
@@ -9,16 +9,16 @@ const Usuario = sequelize.define('Usuario', {
     primaryKey: true
   },
   nome: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.STRING(255),
     allowNull: false
   },
   email: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: true
   },
   senha: {
-    type: DataTypes.STRING(255),
+    type: DataTypes.STRING,
     allowNull: false
   },
   cpf: {

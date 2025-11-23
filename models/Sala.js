@@ -1,6 +1,6 @@
 // models/Sala.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const { sequelize } = require('../config/db');
 
 const Sala = sequelize.define('Sala', {
   id: {
