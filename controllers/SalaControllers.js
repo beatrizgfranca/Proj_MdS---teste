@@ -12,7 +12,36 @@ class SalaController {
 
         try {
 
-            const salas = await Sala.findAll();
+            const { predio_pertencente_nome, andar_numero } = req.body;
+
+            if (!andar_numero || !predio_pertencente_nome) {
+                throw new Error("Algum dos campos estão vazios")
+            }
+
+            const predio = await Predio.findOne({
+                where: { nome: predio_pertencente_nome }
+            })
+
+            if (!predio) {
+                throw new Error('Prédio não existe')
+            }
+
+            const andar = await Andar.findOne({
+                where: {
+                    numero: NUMBER(andar_numero),
+                    predioId: predio.id
+                }
+            })
+
+            if (!andar) {
+                throw new Error('Andar não existe no prédio')
+            }
+
+            const salas = await Sala.findAll({
+                where: {
+                    andarId: andar.id
+                }
+            });
 
             res.json({ success: true, data: salas });
 
