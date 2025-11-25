@@ -4,7 +4,6 @@ const Andar = require('../models/Andar');
 const Predio = require('../models/Predio');
 const path = require('path');
 const PDFDocument = require('pdfkit');
-const { NUMBER } = require('sequelize');
 
 class SalaController {
 
@@ -14,7 +13,7 @@ class SalaController {
 
             const { predio_pertencente_nome, andar_numero } = req.body;
 
-            if (!andar_numero || !predio_pertencente_nome) {
+            if (!andar_numero || !predio_pertencente_nome || isNaN(Number(andar_numero))) {
                 throw new Error("Algum dos campos estão vazios")
             }
 
@@ -28,7 +27,7 @@ class SalaController {
 
             const andar = await Andar.findOne({
                 where: {
-                    numero: NUMBER(andar_numero),
+                    numero: Number(andar_numero),
                     predioId: predio.id
                 }
             })
@@ -57,7 +56,7 @@ class SalaController {
 
             const { nomeSala, andar_numero, predio_pertencente_nome } = req.body;
 
-            if (!nomeSala || !andar_numero || !predio_pertencente_nome) {
+            if (!nomeSala || !andar_numero || !predio_pertencente_nome || isNaN(Number(andar_numero))) {
                 throw new Error("Algum dos campos estão vazios")
             }
 
@@ -71,7 +70,7 @@ class SalaController {
 
             const andar = await Andar.findOne({
                 where: {
-                    numero: NUMBER(andar_numero),
+                    numero: Number(andar_numero),
                     predioId: predio.id
                 }
             })

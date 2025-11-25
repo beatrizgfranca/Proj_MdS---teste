@@ -1,4 +1,3 @@
-const { NUMBER } = require('sequelize');
 const Andar = require('../models/Andar');
 const Predio = require('../models/Predio');
 
@@ -23,7 +22,7 @@ class AndarController {
             }
 
             await Andar.create({
-                numero: numero_andar,
+                numero: Number(numero_andar),
                 predioId: predio.id
             })
 
